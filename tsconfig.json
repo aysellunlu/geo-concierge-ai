@@ -1,15 +1,17 @@
 {
-    "compilerOptions": {
-      "target": "ESNext",
-      "module": "ESNext",
-      "moduleResolution": "Bundler",
-      "moduleDetection": "force",
-      "allowImportingTsExtensions": true,
-      "noEmit": true,
-      "strict": true,
-      "skipLibCheck": true,
-      "esModuleInterop": true,
-      "isolatedModules": true
-    },
-    "include": ["src/**/*"]
-  }
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": false, 
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}

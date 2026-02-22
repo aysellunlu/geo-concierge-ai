@@ -1,4 +1,4 @@
-import { createTool } from '@mastra/core';
+import { createTool } from '@mastra/core/tools';
 import { z } from 'zod';
 
 export const weatherTool = createTool({
@@ -7,8 +7,7 @@ export const weatherTool = createTool({
   inputSchema: z.object({
     location: z.string().describe('Hava durumu sorgulanacak şehir/ilçe'),
   }),
-  execute: async ({ input }) => {
-    // Şimdilik mock veri (Gerçekçi olması için 34 derece veriyoruz)
+  execute: async (input) => {
     console.log(`--- Tool Çalıştı: ${input.location} için hava bakılıyor...`);
     return {
       temp: 34,

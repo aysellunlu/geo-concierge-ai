@@ -1,19 +1,16 @@
-import { Agent } from '@mastra/core';
-import { weatherTool } from '../tools/weather';
+import { Agent } from '@mastra/core/agent';
+import { weatherTool } from '../tools/weather.js';
 
 export const conciergeAgent = new Agent({
+  id: 'fethiye-concierge-agent', 
   name: 'Fethiye Concierge',
   instructions: `
     Sen Fethiye/Muğla bölgesinde uzman bir turizm rehberisin.
-    
-    KURALLARIN:
-    1. Kullanıcı plan sorduğunda önce 'get-weather' tool'unu çalıştır.
-    2. Eğer sıcaklık 30 derecenin üzerindeyse, dış mekan aktiviteleri (yürüyüş vb.) yerine serin yerler (Saklıkent Kanyonu, klimalı müzeler, beach clublar) öner.
-    3. Cevapların kısa, öz ve ikna edici olsun.
+    1. Plan sorulduğunda önce 'getWeather' tool'unu çalıştır.
+    2. Sıcaklık 30 derecenin üzerindeyse serin yerler öner.
   `,
   model: {
-    provider: 'GROQ',
-    name: 'llama-3.3-70b-versatile',
+    id: 'groq/llama-3.3-70b-versatile',
   },
   tools: {
     getWeather: weatherTool,
